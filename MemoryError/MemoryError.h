@@ -5,7 +5,6 @@
 #include <iostream>
 #include <windows.h>
 #include <cstdlib>
-#include <string>
 #include <tlhelp32.h> 
 #include <tchar.h> 
 #include <stdio.h>

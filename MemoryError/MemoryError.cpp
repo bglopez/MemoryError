@@ -22,9 +22,9 @@ DWORD64 RSExeSize;
 string RSExeFile;
 DWORD HPid;
 DWORD64 Exe1,Exe2,Exe3,Exe4,Exe5,Exe6,Exe7,SettingsStart;
-FLOAT MyLocYRaw = NULL;
-FLOAT MyLocXRaw = NULL;
-FLOAT MyLocZRaw = NULL;
+FLOAT MyLocYRaw = 0.0f;
+FLOAT MyLocXRaw = 0.0f;
+FLOAT MyLocZRaw = 0.0f;
 INT Floor;
 DWORD64 Compass;
 vector<DWORD64> SettingsAddr;
@@ -246,8 +246,8 @@ list<MEMORY_BASIC_INFORMATION64> buff2;
 WORD screen_width2, screen_height2;
 
 DWORD64 ClientBase = NULL;
-DWORD PlaceHolderX = NULL;
-DWORD PlaceHolderY = NULL;
+DWORD PlaceHolderX = 0;
+DWORD PlaceHolderY = 0;
 DWORD InterfAdd = 0;
 DWORD64 Interfexp1;
 DWORD64 ScAdd = NULL;
@@ -395,7 +395,7 @@ WPOINT GetMLoc()
 
 //Calculate to tile location
 FLOAT CRL(FLOAT addr) {
-	if (addr != NULL) {
+	if (addr != 0.0f) {
 		return addr / 512.f;
 	}
 	else return 0.f;
@@ -403,7 +403,7 @@ FLOAT CRL(FLOAT addr) {
 
 //Calculate back to raw location
 FLOAT RXY(INT addr) {
-	if (addr != NULL) {
+	if (addr != 0) {
 		return addr * 512.f;
 	}
 	else return 0.f;
@@ -420,6 +420,7 @@ MEMss DeterMemoryBlockLenght(DWORD64  blokk) {
 
 		}
 	}
+	return{ 0, 0 };
 }
 
 //info
