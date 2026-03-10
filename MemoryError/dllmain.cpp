@@ -120,11 +120,11 @@ extern "C"  __declspec(dllexport) WORD GetPray()
 extern "C" __declspec(dllexport) BOOLEAN ReadUpTxt(SimbaString str) {
 	//waste of time to check for null, crashes if nothing is written and then try do anything with str
 	string s = str;
-		string f = FindSideText();
-		if (s.length()>0 && f.length()>0) {
-			if (f.find(s) != string::npos) {
-				return TRUE;
-			}
+	string f = FindSideText();
+	if (s.length() > 0 && f.length() > 0) {
+		if (f.find(s) != string::npos) {
+			return TRUE;
+		}
 	}
 	return FALSE;
 }
@@ -137,7 +137,7 @@ extern "C"  __declspec(dllexport) DWORD ReadVarpBit(WORD id)
 
 extern "C"  __declspec(dllexport) RECT ReadInterface(WORD id1, WORD id2, WORD id3, WORD id4)
 {
-	RECT rectangle;
+	RECT rectangle = {};
 	DWORD64 TempMemoryLoc;
 	TempMemoryLoc = Locateinterface(id1, id2, id3, id4);
 	if (TempMemoryLoc != NULL) {
@@ -179,7 +179,7 @@ extern "C"  __declspec(dllexport) BOOLEAN FindNPCLock(DWORD* obj, BYTE size, BYT
 	for (WORD i = 0; i < size; i++) {
 		objectsArray.push_back(obj[i]);
 	}
-	return  FindNPCLock_(objectsArray, d);;
+	return  FindNPCLock_(objectsArray, d);
 }
 
 extern "C"  __declspec(dllexport) VOID KeyPress(char Key)
@@ -276,7 +276,7 @@ extern "C"  __declspec(dllexport) BOOLEAN Findobj(DWORD* obj, BYTE size, BYTE d)
 	for (WORD i = 0; i < size; i++) { 
 		objectsArray.push_back(obj[i]);
 	}
-	return  FindSObj(objectsArray, d);;
+	return  FindSObj(objectsArray, d);
 }
 
 extern "C"  __declspec(dllexport) BOOLEAN ReadPMove()
@@ -373,12 +373,12 @@ extern "C"  __declspec(dllexport) VOID MouseClick(POINT x, BOOLEAN x2)
 
 extern "C"  __declspec(dllexport) POINT TileToMap(POINT x)
 {
-	return TToMap(x);;
+	return TToMap(x);
 }
 
 extern "C"  __declspec(dllexport) POINT TileToScreen(POINT x)
 {
-	return TToScreen(x);;
+	return TToScreen(x);
 }
 
 extern "C" int __declspec(dllexport) GetPluginABIVersion()
